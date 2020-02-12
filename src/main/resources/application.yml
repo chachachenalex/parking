@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: root
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate.dialect:  org.hibernate.dialect.MySQL5Dialect
+  liquibase:
+    enabled: true #this is optional as enabled by default
+    change-log: classpath:/liquibase/db-changelog.xml
