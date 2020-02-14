@@ -17,7 +17,7 @@
         <createTable tableName="parking">
 
             <column name="parkingId" type="BIGINT" ><constraints nullable="false" unique="true"/></column>
-            <column name ="powerType" type="Enum('GASOLINE','TWENTYWATT','FOURTYWATT')"></column>
+            <column name ="powerType" type="Enum('GASOLINE','TWENTYWATT','FOURTYWATT')"><constraints nullable="false"/> </column>
             <column name ="carId" type="BIGINT"><constraints foreignKeyName="fk_parking_car" referencedTableName="car" referencedColumnNames="carId"></constraints> </column>
             <column name ="arrival" type ="DATETIME"></column>
             <column name ="departure" type ="DATETIME"></column>
