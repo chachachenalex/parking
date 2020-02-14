@@ -1,5 +1,27 @@
 <databaseChangeLog logicalFilePath="db.changelog-1.0.xml" xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="gchen" id="001">
+        <createTable tableName="car">
+            <column name="carId" type="BIGINT">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="powerType" type="Enum('GASOLINE','TWENTYWATT','FOURTYWATT')">
+                <constraints nullable="false"/>
+            </column>
 
+
+        </createTable>
+    </changeSet>
+    <changeSet id="002" author="gchen">
+        <createTable tableName="parking">
+
+            <column name="parkingId" type="BIGINT" ><constraints nullable="false" unique="true"/></column>
+            <column name ="powerType" type="Enum('GASOLINE','TWENTYWATT','FOURTYWATT')"></column>
+            <column name ="carId" type="BIGINT"><constraints foreignKeyName="fk_parking_car" referencedTableName="car" referencedColumnNames="carId"></constraints> </column>
+            <column name ="arrival" type ="DATETIME"></column>
+            <column name ="departure" type ="DATETIME"></column>
+            <column name ="unitPrice" type ="FLOAT"></column>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
